@@ -1,0 +1,45 @@
+    <section className="flex flex-row">
+      <div className="flex flex-col">
+        <h2 className="text-base">General Information</h2>
+        <p className="text-base">
+          This Information helps you and your customers identify the product on
+          order, documents,and in the online store.
+        </p>
+      </div>
+      <div className="container p-4">
+        <Form
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+          block
+          className="flex"
+        >
+          <Form.Item label="Product name" name="product_name">
+            <Input />
+          </Form.Item>
+          <Form.Item>
+            <Upload
+              name="avatar"
+              listType="picture-card"
+              className="avatar-uploader"
+              showUploadList={true}
+              beforeUpload={beforeUpload}
+              onChange={handleChange}
+            >
+              {imageUrl ? (
+                <img
+                  src={imageUrl}
+                  alt="avatar"
+                  style={{
+                    width: "100%",
+                  }}
+                />
+              ) : (
+                uploadButton
+              )}
+            </Upload>
+            <Button type="submit">Submit</Button>
+          </Form.Item>
+        </Form>
+      </div>
+    </section>
